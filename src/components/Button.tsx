@@ -2,22 +2,18 @@ import * as React from "react";
 
 export interface IButtonProps {
     children?: React.ReactNode;
-    onClick?: (e:any) => void;
+    onClick?: (e: any) => void;
     styles?: {}
+    className?: string
 }
 
-const styles = {
-    border: "1px solid #eee",
-    borderRadius: 3,
-    backgroundColor: "#FFFFFF",
-    cursor: "pointer",
-    fontsize: 15,
-    padding: "3px 10px",
-    margin: 10,
-};
+const styles = {};
 
 const Button: React.FC<IButtonProps> = (props) => (
-    <button onClick={props.onClick} style={props.styles} type={"button"}>
+    <button type={"button"}
+            onClick={props.onClick}
+            className={props.className}
+            style={props.styles}>
         {props.children}
     </button>
 );
@@ -26,6 +22,7 @@ Button.defaultProps = {
     children: null,
     onClick: () => {},
     styles,
+    className: "btn btn-primary",
 };
 
 export default Button;
