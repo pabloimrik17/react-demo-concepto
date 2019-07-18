@@ -1,8 +1,9 @@
 import * as React from "react";
-import {BrowserRouter as Router, Route, Redirect, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import LoginView from "./views/LoginView";
 import AdminView from "./views/AdminView";
 import {useState} from "react";
+import PrivateRoute from "./components/router/PrivateRouter";
 
 const AppRouter: React.FC = () => {
     const [logged, setLogged] = useState<Boolean>(false);
@@ -16,21 +17,5 @@ const AppRouter: React.FC = () => {
         </Router>
     )
 };
-
-export const PrivateRoute: React.FC<any> = ({component: Component, ...rest}: {component: any, logged: Boolean}) => {
-    const isLogin = () => rest.logged;
-
-    return (
-
-        // Show the component only when the user is logged in
-        // Otherwise, redirect the user to /signin page
-        <Route {...rest} render={props => (
-            isLogin() ?
-                <Component {...props} />
-                : <Redirect to="/login" />
-        )} />
-    );
-};
-
 
 export default AppRouter

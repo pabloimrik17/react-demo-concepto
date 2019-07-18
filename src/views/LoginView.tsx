@@ -1,13 +1,12 @@
 import * as React from "react";
 import {RouteComponentProps, withRouter} from "react-router";
-import {FormEvent} from "react";
 
-export interface ILoginProps {
+interface ILoginProps {
     setLogged: Function
 }
 
 const LoginView: React.FC<ILoginProps & RouteComponentProps> = (props) => {
-    const obSubmit = (e: FormEvent<HTMLButtonElement>) => {
+    const obSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
         props.setLogged(true);
         props.history.push("/");

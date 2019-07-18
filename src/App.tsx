@@ -8,7 +8,7 @@ import AppRouter from './AppRouter';
 // TODO Navigation, pasar vista con jsx y filtrar para no pintar un Maplist
 //
 
-const App: React.FC<any> = () => {
+const App: React.FC = () => {
     return (
         <AppRouter/>
     );

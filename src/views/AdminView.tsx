@@ -1,7 +1,7 @@
 import * as React from "react";
 import {RouteComponentProps} from "react-router";
 
-export interface IAdminViewProps extends RouteComponentProps {}
+interface IAdminViewProps extends RouteComponentProps {}
 
 const AdminView: React.FC<IAdminViewProps> = () => {
     return (
